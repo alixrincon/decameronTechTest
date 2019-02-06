@@ -104,7 +104,7 @@ $(document).ready(function () {
             }
         });
         request.done(function (data) {
-            $("#selecctionRows").html("");
+            $("#selecctionRows .emptyrow").remove();
             $("#selecctionRows").append('<tr><td>' + data.amount + '</td><td>' +
                 localStorage.getItem("HotelRoomType:" + $("#typerooms").val()) + '</td><td>' +
                 localStorage.getItem("AcomodationType:" + $("#accomodation").val()) + '</td></tr>');
