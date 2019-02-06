@@ -3,6 +3,7 @@
  */
 $(document).ready(function () {
 
+    //Funcion que serializa el objeto para enviarlo en el data.
     function objectifyForm(formArray) {
 
         var returnArray = {};
@@ -11,7 +12,7 @@ $(document).ready(function () {
         }
         return returnArray;
     }
-
+    //Carga las ciudades en el combo de seleccion cities.
     function loadCities() {
         var request = $.ajax({
             type: 'GET',
@@ -24,7 +25,6 @@ $(document).ready(function () {
             });
         });
     }
-
     loadCities();
 
     //Creacion del Hotel
@@ -49,7 +49,7 @@ $(document).ready(function () {
             });
         });
     });
-
+    //Carga los tipos de habitacion
     function loadHotelRoomType() {
         var request = $.ajax({
             type: 'GET',
@@ -63,9 +63,9 @@ $(document).ready(function () {
             });
         });
     }
-
     loadHotelRoomType();
 
+    //En el change del combo tipo de habitacion envia los valores name y id de acuerdo a las acomodaciones permitidas.
     $("#typerooms").change(function () {
 
         $("#accomodation")
@@ -88,6 +88,7 @@ $(document).ready(function () {
         });
     });
 
+    //En el clic del  boton añadir crea los valores registrados para tipo habitacion, acomodacion y cantidad para el hotel
     $('#add').on('click', function (e) {
         e.preventDefault();
         $("#acomodationAssign select, input").next().html("");
@@ -116,6 +117,7 @@ $(document).ready(function () {
         });
     });
 
+    //clic del boton finalizar hace un location.reload
     $('#closeapp').on('click', function (e) {
         e.preventDefault();
         location.reload();

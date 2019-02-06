@@ -19,7 +19,7 @@ class HotelRoomType extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'hotelRoomType';
+        return 'hotelroomtype';
     }
 
     /**

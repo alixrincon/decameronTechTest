@@ -16,7 +16,8 @@ class BaseController extends ActiveController
         return [
             //'*',                        // star allows all domains
              'http://localhost',
-            //'http://test2.example.com',
+             'http://127.0.0.1',
+             'http://alixhotelsdecame.byethost3.com/',
         ];
     }
     /**

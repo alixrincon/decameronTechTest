@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Alix Rincón
+ * User: Alix Rincon
  * Date: 05/02/2019
  * Time: 11:40
  */
@@ -22,15 +22,17 @@ class RoomconfigController extends BaseController
         return $actions;
     }
 
+    //Metodo que trae por el id del tipo de habitacion el tipo de acomodacion.
     public function actionGetbyid($id)
     {
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON; //Se define la respuesta en JSON
+        //Busqueda en el modelo de RoomConfig por el id del tipo de habitacion.
         $model = RoomConfig::find()
-            ->select(['roomConfig.*'])
+            ->select(['roomconfig.*'])
             ->innerJoinWith('accomodationtype0', 'accomodationtype0.id = t.accomodationtype')
             ->where(['hotelroomtype' => $id])
             ->all();
-
+        //Se recorre el modelo y se asigna en el id del la tabla roomConfig y el name para el select de tipo acomodacion
         foreach($model as $key => $value){
             $response[] =
                 [

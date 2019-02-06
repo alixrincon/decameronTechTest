@@ -22,7 +22,7 @@ class HotelHasRooms extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'hotelHasRooms';
+        return 'hotelhasrooms';
     }
 
     /**
@@ -88,7 +88,7 @@ class HotelHasRooms extends \yii\db\ActiveRecord
             foreach ($model as $value) {
                 $acum += $value->amount;
                 if($this->idhotel == $value->idhotel && $this->idroomconfig == $value->idroomconfig){
-                    $this->addError("idhotel", 'Ya tiene acomodaciones registradas en este hotel, para este tipo de acomodación');
+                    $this->addError("idhabitacion", 'Ya tiene acomodaciones registradas en este hotel, para este tipo de habitación');
                     return false;
                 }
             }

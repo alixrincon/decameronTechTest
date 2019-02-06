@@ -22,7 +22,7 @@ class RoomConfig extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'roomConfig';
+        return 'roomconfig';
     }
 
     /**
