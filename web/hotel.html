@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        function UserAction() {
+            debugger;
+            var xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "http://localhost/decameron/web/hotel/index", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.onreadystatechange = function() {
+                debugger;
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                }
+            };
+            //xhttp.send("Your JSON Data Here");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="UserAction()">Search</button>
+</body>
+</html>

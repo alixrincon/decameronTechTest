@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script
+            src="js/logic.js"
+            crossorigin="anonymous"></script>
+
+</head>
+<body class="bg-light">
+
+
+<div class="container" id="createHotelForm">
+    <form id="createHotel">
+        <div class="row">
+            <div class="col-md-12 order-md-2 mb-4">
+                <div class="bd-pageheader">
+                    <h1>Formulario Registro Hotel</h1>
+                    <p class=" lead">En esta sección podrá crear hoteles.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 order-md-2 mb-4">
+                <label>Nombre:</label>
+                <input name="name" class="form-control" type="text" placeholder="Ingrese Nombre Hotel"/>
+                <i class="has-error" style="color: #e9573f"></i>
+            </div>
+            <div class="col-md-6 order-md-2 mb-4">
+                <label>Dirección:</label>
+                <input name="address" class="form-control" type="text" placeholder="Ingrese Dirección Hotel"/>
+                <i class="has-error" style="color: #e9573f"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 order-md-2 mb-4">
+                <label>Ciudad:</label>
+                <select name="idcity" id="cities" class="custom-select selectpicker" data-live-search="true">
+                    <option selected value="">Seleccione Ciudad</option>
+                </select>
+                <i class="has-error" style="color: #e9573f"></i>
+            </div>
+            <div class="col-md-6 order-md-2 mb-4">
+                <label>NIT:</label>
+                <input name="nit" class="form-control" type="text" placeholder="Ingrese NIT"/>
+                <i class="has-error" style="color: #e9573f"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 order-md-2 mb-4">
+                <label>Número total Habitaciones:</label>
+                <input name="total_rooms" class="form-control" type="number"
+                       placeholder="Ingrese número total de habitaciones"/>
+                <i class="has-error" style="color: #e9573f"></i>
+            </div>
+            <div class="col-md-6 order-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 order-md-2"></div>
+            <div class="col-md-4 order-md-2 mb-4">
+                <button id="postHotel" class="btn btn-primary btn-lg btn-block">Crear</button>
+            </div>
+            <div class="col-md-4 order-md-2"></div>
+        </div>
+    </form>
+</div>
+<div id="acomodationAssign" class="container" style="display: none">
+    <form id="assignRoom">
+        <div class="row">
+            <div class="col-md-12 order-md-2 mb-4">
+                <div class="bd-pageheader">
+                    <h1>Ingreso de Acomodaciones</h1>
+                    <p class=" lead">En esta sección podrá asignar por tipo de habitación la respectiva acomodación
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label>Tipo Habitación:</label>
+                <select name="idhabitacion" id="typerooms" class="custom-select selectpicker" data-live-search="true">
+                    <option selected value="">Seleccione Tipo Habitación</option>
+                </select>
+                <i class="has-error" style="color: #e9573f"></i>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Acomodación:</label>
+                <select disabled name="idroomconfig" id="accomodation" class="custom-select selectpicker"
+                        data-live-search="true">
+                    <option selected value="">Seleccione Tipo Acomodación</option>
+                </select>
+                <i class="has-error" style="color: #e9573f"></i>
+            </div>
+            <div class="form-group col-md-3">
+                <label>Cantidad:</label>
+                <input type="number" class="form-control" name="amount" id="amount"
+                       placeholder="Cantidad Habitaciones"/>
+                <i class="has-error" style="color: #e9573f"></i>
+            </div>
+            <div class="form-group col-md-3">
+                <label>&nbsp;</label>
+                <button id="add" class="btn btn-primary btn-block">Añadir</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered">
+                    <thead style="background-color: white">
+                    <tr>
+                        <th>Cantidad</th>
+                        <th>Tipo Habitación</th>
+                        <th>Acomodación</th>
+                    </tr>
+                    </thead>
+                    <tbody id="selecctionRows" style="background-color: white">
+                    <tr>
+                        <td colspan="3" style="text-align: center">No hay registros Disponibles</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row"><br/>
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button id="closeapp" disabled class="btn btn-primary btn-lg btn-block">Finalizar</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+
